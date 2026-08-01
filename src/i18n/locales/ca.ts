@@ -62,8 +62,8 @@ export const ca = {
     cardTitle: 'Granissat Premium',
     cardText: 'Sabor intens a -5°C, perfecte per a l\'estiu mediterrani.',
     cardCta: 'Descobreix-ho més',
-    bgAlt: 'Granissat d\'ametlla Colonette en terrassa mediterrània',
-    cardAlt: 'Granissat d\'ametlla Colonette',
+    bgAlt: 'Granissat de fruites Colonette en terrassa mediterrània',
+    cardAlt: 'Granissat de fruites Colonette',
   },
   almond: {
     badge: 'Producte Estrella',

@@ -62,8 +62,8 @@ export const en = {
     cardTitle: 'Premium Slush',
     cardText: 'Intense flavor at -5°C, perfect for the Mediterranean summer.',
     cardCta: 'Discover more',
-    bgAlt: 'Colonette almond granita on a Mediterranean terrace',
-    cardAlt: 'Colonette almond granita',
+    bgAlt: 'Colonette fruit granita on a Mediterranean terrace',
+    cardAlt: 'Colonette fruit granita',
   },
   almond: {
     badge: 'Signature Product',

@@ -62,8 +62,8 @@ export const es = {
     cardTitle: 'Granizado Premium',
     cardText: 'Sabor intenso a -5°C, perfecto para el verano mediterráneo.',
     cardCta: 'Descubre más',
-    bgAlt: 'Granizado de almendra Colonette en terraza mediterránea',
-    cardAlt: 'Granizado de almendra Colonette',
+    bgAlt: 'Granizado de frutas Colonette en terraza mediterránea',
+    cardAlt: 'Granizado de frutas Colonette',
   },
   almond: {
     badge: 'Producto Estrella',
