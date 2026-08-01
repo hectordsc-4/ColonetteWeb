@@ -1,11 +1,6 @@
-.products-page {
-  background:
-    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(0, 86, 145, 0.08), transparent 55%),
-    linear-gradient(180deg, #f3f7fb 0%, #ffffff 42%, #ffffff 100%);
-}
-
 .products-hero {
   padding: 3.5rem 0 2.75rem;
+  position: relative;
 }
 
 .products-hero__grid {
@@ -16,7 +11,7 @@
 }
 
 .products-hero__eyebrow {
-  color: #5b8fb8;
+  color: var(--blue-mist);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -48,16 +43,6 @@
   gap: 0.85rem;
 }
 
-.btn-outline-brown {
-  background: #fff;
-  color: var(--brown);
-  border: 1.5px solid var(--brown);
-}
-
-.btn-outline-brown:hover {
-  background: #faf4ee;
-}
-
 .products-hero__collage {
   display: grid;
   grid-template-columns: 1fr 0.85fr;
@@ -70,8 +55,9 @@
   margin: 0;
   border-radius: var(--radius);
   overflow: hidden;
-  background: #fff;
-  box-shadow: var(--shadow);
+  background: var(--blue-wash);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   animation: fade-up 0.8s ease both;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }

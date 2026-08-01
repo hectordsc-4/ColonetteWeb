@@ -6,7 +6,7 @@ import './ServicePage.css'
 
 export default function ServicePage() {
   return (
-    <main className="service-page">
+    <main className="service-page page-wash">
       <ServiceHero />
       <ServiceOfferings />
       <ServiceFaq />

@@ -1,6 +1,6 @@
 .islands {
   padding: 1.5rem 0 var(--section-y);
-  background: #fff;
+  background: transparent;
 }
 
 .islands__head {
@@ -8,7 +8,9 @@
   justify-content: space-between;
   gap: 1.5rem;
   align-items: flex-start;
-  margin-bottom: 1.85rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .islands__head h2 {
@@ -17,22 +19,23 @@
 }
 
 .islands__head p {
-  margin-top: 0.7rem;
+  margin-top: 0.75rem;
   color: var(--muted);
   max-width: 40rem;
+  font-size: 1.02rem;
 }
 
 .islands__stock {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.5rem 0.95rem;
-  border-radius: var(--radius-pill);
-  background: #e8f1f8;
+  gap: 0.5rem;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--blue);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -41,70 +44,90 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #3fad6a;
-  box-shadow: 0 0 0 4px rgba(63, 173, 106, 0.18);
+  background: var(--teal);
+  box-shadow: 0 0 0 3px rgba(42, 168, 160, 0.2);
 }
 
 .islands__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.15rem;
+  gap: 1.35rem;
 }
 
 .island-card {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  padding: 1.7rem 1.55rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius);
+  padding: 1.85rem 1.65rem;
+  box-shadow: none;
+  transition: transform 0.35s ease;
 }
 
 .island-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  box-shadow: none;
 }
 
 .island-card--navy {
-  background: linear-gradient(155deg, #12263d, #1a3554);
+  background:
+    linear-gradient(125deg, transparent 55%, rgba(42, 168, 160, 0.12) 100%),
+    linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 100%);
   color: #fff;
+  border: 1px solid transparent;
+}
+
+.island-card--navy::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.85rem;
+  bottom: 1.85rem;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--teal);
 }
 
 .island-card--navy::after {
   content: '';
   position: absolute;
-  right: -40px;
-  top: -40px;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
+  right: 0;
+  top: 0;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.04));
+  pointer-events: none;
 }
 
 .island-card--light {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #fff 0%, #f7fafb 100%);
+  border: 1px solid rgba(228, 232, 238, 0.95);
+}
+
+.island-card--light::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.85rem;
+  bottom: 1.85rem;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--blue-mist);
 }
 
 .island-card--light::after {
-  content: '';
-  position: absolute;
-  right: -30px;
-  bottom: -50px;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(0, 86, 145, 0.05);
+  display: none;
 }
 
 .island-card h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   font-family: var(--font-brand);
-  font-size: 1.4rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+  padding-left: 0.85rem;
   position: relative;
   z-index: 1;
 }
@@ -114,35 +137,40 @@
 }
 
 .island-card--light h3 {
-  color: var(--blue);
+  color: var(--ink);
 }
 
 .island-card__badge {
-  padding: 0.28rem 0.6rem;
-  border-radius: var(--radius-pill);
+  padding: 0.22rem 0;
+  border-radius: 0;
   font-family: var(--font);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #fff;
+  color: inherit;
+  background: transparent;
+  border-bottom: 1.5px solid currentColor;
 }
 
 .island-card__badge--green {
-  background: #3fad6a;
+  background: transparent;
+  color: var(--teal);
 }
 
 .island-card__badge--orange {
-  background: var(--orange);
+  background: transparent;
+  color: var(--brown);
 }
 
 .island-card > p {
   position: relative;
   z-index: 1;
+  padding-left: 0.85rem;
   color: inherit;
   opacity: 0.9;
   font-size: 0.98rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .island-card--light > p {
@@ -151,9 +179,10 @@
 }
 
 .island-card ul {
-  margin: 1.15rem 0 1.35rem;
+  margin: 1.25rem 0 1.45rem;
+  padding-left: 0.85rem;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.6rem;
   position: relative;
   z-index: 1;
 }
@@ -161,7 +190,7 @@
 .island-card li {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-weight: 600;
   font-size: 0.94rem;
 }
@@ -169,10 +198,11 @@
 .island-card li::before {
   content: '✓';
   font-weight: 700;
+  flex-shrink: 0;
 }
 
 .island-card--navy li::before {
-  color: #7cbc8a;
+  color: var(--teal);
 }
 
 .island-card--light li::before {
@@ -182,11 +212,21 @@
 .island-card a {
   position: relative;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.85rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: gap 0.25s ease;
+}
+
+.island-card a:hover {
+  gap: 0.55rem;
 }
 
 .island-card--navy a {
-  color: #7cbc8a;
+  color: var(--teal);
 }
 
 .island-card--light a {

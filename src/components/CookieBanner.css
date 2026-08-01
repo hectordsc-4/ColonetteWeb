@@ -3,70 +3,73 @@
   right: 1.25rem;
   bottom: 5.75rem;
   z-index: 120;
-  width: min(340px, calc(100vw - 2rem));
-  padding: 1.25rem 1.3rem 1.3rem;
+  width: min(350px, calc(100vw - 2rem));
+  padding: 1.3rem 1.35rem 1.35rem;
   border-radius: var(--radius);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.97);
   box-shadow: var(--shadow-lift);
-  border: 1px solid rgba(228, 232, 238, 0.9);
+  border: 1px solid rgba(0, 86, 145, 0.14);
+  backdrop-filter: blur(10px);
   animation: fade-up 0.5s ease both;
 }
 
 .cookies__head {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 0.55rem;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .cookies__icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: var(--blue-soft);
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, var(--blue-soft), #fff);
   color: var(--blue);
   display: grid;
   place-items: center;
+  border: 1px solid rgba(0, 86, 145, 0.12);
 }
 
 .cookies h2 {
   font-family: var(--font);
   font-size: 1rem;
   color: var(--ink);
-  letter-spacing: 0;
+  letter-spacing: -0.01em;
 }
 
 .cookies p {
   color: var(--muted);
   font-size: 0.88rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .cookies__actions {
-  margin-top: 1rem;
+  margin-top: 1.05rem;
   display: flex;
   gap: 0.65rem;
 }
 
 .cookies__actions .btn {
   flex: 1;
-  padding: 0.7rem 0.8rem;
+  padding: 0.72rem 0.8rem;
   font-size: 0.88rem;
 }
 
 .cookies__config {
   flex: 1;
-  padding: 0.7rem 0.8rem;
+  padding: 0.72rem 0.8rem;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--ink);
-  color: var(--ink);
+  border: 1.5px solid rgba(0, 86, 145, 0.28);
+  color: var(--blue);
   font-weight: 600;
   font-size: 0.88rem;
   background: #fff;
+  transition: background 0.2s ease;
 }
 
 .cookies__config:hover {
-  background: var(--bg-soft);
+  background: var(--blue-wash);
 }
 
 @media (max-width: 560px) {

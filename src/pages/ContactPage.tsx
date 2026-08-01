@@ -6,7 +6,7 @@ import './ContactPage.css'
 
 export default function ContactPage() {
   return (
-    <main className="contact-page">
+    <main className="contact-page page-wash-teal">
       <ContactHero />
       <ContactChannels />
       <ContactOffice />

@@ -3,6 +3,7 @@
   --blue-deep: #003d66;
   --blue-soft: #e8f1f7;
   --blue-wash: #f0f6fa;
+  --blue-mist: #5b8fb8;
   --orange: #f57c00;
   --orange-soft: #fff3e0;
   --red: #c8102e;
@@ -17,6 +18,8 @@
   --bg: #ffffff;
   --bg-soft: #f5f7fa;
   --footer: #0a1628;
+  --navy: #0f2744;
+  --navy-mid: #12263d;
   --radius: 20px;
   --radius-sm: 12px;
   --radius-lg: 28px;
@@ -29,6 +32,12 @@
   --container: 1180px;
   --header-h: 76px;
   --section-y: 5rem;
+  --page-wash:
+    radial-gradient(ellipse 75% 45% at 100% 0%, rgba(0, 86, 145, 0.09), transparent 55%),
+    linear-gradient(180deg, #f3f7fb 0%, #ffffff 42%, #ffffff 100%);
+  --page-wash-teal:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(42, 168, 160, 0.1), transparent 50%),
+    linear-gradient(180deg, #f4faf9 0%, #ffffff 40%, #ffffff 100%);
 }
 
 *,
@@ -99,6 +108,29 @@ h3 {
   margin-inline: auto;
 }
 
+.page-wash {
+  background: var(--page-wash);
+}
+
+.page-wash-teal {
+  background: var(--page-wash-teal);
+}
+
+.section-eyebrow {
+  color: var(--blue-mist);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  margin: 0;
+}
+
 .section-atmosphere {
   position: relative;
 }
@@ -112,6 +144,12 @@ h3 {
   background-image: radial-gradient(rgba(10, 22, 40, 0.035) 0.6px, transparent 0.6px);
   background-size: 18px 18px;
   mask-image: linear-gradient(180deg, transparent, #000 18%, #000 82%, transparent);
+  z-index: 0;
+}
+
+.section-atmosphere > * {
+  position: relative;
+  z-index: 1;
 }
 
 .btn {
@@ -162,6 +200,16 @@ h3 {
   background: var(--blue-soft);
 }
 
+.btn-outline-brown {
+  background: #fff;
+  color: var(--brown);
+  border: 1.5px solid var(--brown);
+}
+
+.btn-outline-brown:hover {
+  background: #faf4ee;
+}
+
 .btn-brown {
   background: var(--brown);
   color: #fff;
@@ -169,6 +217,16 @@ h3 {
 
 .btn-brown:hover {
   background: var(--brown-dark);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .sr-only {
@@ -219,6 +277,15 @@ h3 {
   }
   to {
     transform: scale(1.1);
+  }
+}
+
+@keyframes media-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
   }
 }
 

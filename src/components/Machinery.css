@@ -7,14 +7,13 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background-color: var(--blue-wash);
+  background-color: var(--navy);
   background-size: cover;
-  background-position: right center;
-  padding: 3.5rem 3.25rem;
-  min-height: 340px;
+  background-position: center right;
+  min-height: 420px;
   display: flex;
-  align-items: center;
-  box-shadow: var(--shadow-soft);
+  align-items: stretch;
+  box-shadow: var(--shadow-lift);
   isolation: isolate;
 }
 
@@ -22,37 +21,74 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 246, 250, 0.88) 48%, rgba(240, 246, 250, 0.35) 100%);
+  background:
+    linear-gradient(105deg, rgba(10, 22, 40, 0.92) 0%, rgba(0, 61, 102, 0.78) 42%, rgba(0, 86, 145, 0.28) 100%);
   z-index: 0;
+}
+
+.machinery__banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 0.7px, transparent 0.7px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .machinery__copy {
   position: relative;
   z-index: 1;
-  max-width: 34rem;
+  max-width: 36rem;
+  padding: 3.75rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
 }
 
 .machinery__copy h2 {
-  color: var(--blue);
-  font-size: clamp(1.9rem, 3vw, 2.55rem);
+  color: #fff;
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
+  max-width: 12ch;
 }
 
 .machinery__copy p {
-  margin-top: 1rem;
-  color: var(--muted);
-  font-size: 1.04rem;
+  margin-top: 1.15rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.06rem;
+  line-height: 1.65;
 }
 
 .machinery__actions {
-  margin-top: 1.7rem;
+  margin-top: 1.85rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
 }
 
+.machinery__actions .btn-outline-blue {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.machinery__actions .btn-outline-blue:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 @media (max-width: 700px) {
   .machinery__banner {
-    padding: 2.4rem 1.5rem;
+    min-height: 360px;
     background-position: center;
+  }
+
+  .machinery__copy {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .machinery__copy h2 {
+    max-width: none;
   }
 }
