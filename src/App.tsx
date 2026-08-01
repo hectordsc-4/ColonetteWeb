@@ -3,7 +3,6 @@ import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
-import CartFab from './components/CartFab'
 import useScrollReveal from './hooks/useScrollReveal'
 import './App.css'
 
@@ -24,7 +23,6 @@ export default function App() {
       <Outlet />
       <Footer />
       <CookieBanner />
-      <CartFab />
       <ScrollRestoration />
     </div>
   )

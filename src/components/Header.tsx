@@ -24,7 +24,6 @@ export default function Header({ scrolled }: HeaderProps) {
     { to: '/productos', label: t.nav.products, end: false },
     { to: '/servicio-tecnico', label: t.nav.service, end: false },
     { to: '/novedades', label: t.nav.news, end: false },
-    { to: '/contacto', label: t.nav.contact, end: false },
   ]
 
   useEffect(() => {
@@ -96,9 +95,9 @@ export default function Header({ scrolled }: HeaderProps) {
             </form>
           ) : null}
 
-          <a href="#pedido" className="btn btn-primary header__cta-mobile" onClick={() => setOpen(false)}>
+          <Link to="/contacto" className="btn btn-primary header__cta-mobile" onClick={() => setOpen(false)}>
             {t.nav.order}
-          </a>
+          </Link>
         </nav>
 
         <div className="header__right">
@@ -120,9 +119,9 @@ export default function Header({ scrolled }: HeaderProps) {
 
           <LanguageSwitcher />
 
-          <a href="#pedido" className="btn btn-primary header__cta">
+          <Link to="/contacto" className="btn btn-primary header__cta">
             {t.nav.order}
-          </a>
+          </Link>
         </div>
       </div>
     </header>

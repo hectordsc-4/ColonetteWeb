@@ -5,7 +5,7 @@ export const ca = {
     service: 'Servei Tècnic',
     news: 'Novetats',
     contact: 'Contacte',
-    order: 'Comanda Online',
+    order: 'Contacta amb nosaltres',
     searchProducts: 'Cerca productes...',
     searchGeneric: 'Cerca...',
     openMenu: 'Obrir menú',

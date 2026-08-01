@@ -5,7 +5,7 @@ export const en = {
     service: 'Technical Service',
     news: 'News',
     contact: 'Contact',
-    order: 'Order Online',
+    order: 'Contact us',
     searchProducts: 'Search products...',
     searchGeneric: 'Search...',
     openMenu: 'Open menu',
