@@ -1,20 +1,15 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
+import LanguageSwitcher from './LanguageSwitcher'
 import './Header.css'
-
-const links = [
-  { to: '/', label: 'Inicio', end: true },
-  { to: '/productos', label: 'Productos', end: false },
-  { to: '/servicio-tecnico', label: 'Servicio Técnico', end: false },
-  { to: '/novedades', label: 'Novedades', end: false },
-  { to: '/contacto', label: 'Contacto', end: false },
-]
 
 type HeaderProps = {
   scrolled: boolean
 }
 
 export default function Header({ scrolled }: HeaderProps) {
+  const { t } = useI18n()
   const [open, setOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
@@ -23,6 +18,14 @@ export default function Header({ scrolled }: HeaderProps) {
   const onService = location.pathname.startsWith('/servicio-tecnico')
   const showSearch = onProducts || onService
   const [query, setQuery] = useState(searchParams.get('q') ?? '')
+
+  const links = [
+    { to: '/', label: t.nav.home, end: true },
+    { to: '/productos', label: t.nav.products, end: false },
+    { to: '/servicio-tecnico', label: t.nav.service, end: false },
+    { to: '/novedades', label: t.nav.news, end: false },
+    { to: '/contacto', label: t.nav.contact, end: false },
+  ]
 
   useEffect(() => {
     setQuery(searchParams.get('q') ?? '')
@@ -51,7 +54,7 @@ export default function Header({ scrolled }: HeaderProps) {
         <button
           className={`header__toggle ${open ? 'is-open' : ''}`}
           aria-expanded={open}
-          aria-label="Abrir menú"
+          aria-label={t.nav.openMenu}
           onClick={() => setOpen((v) => !v)}
         >
           <span />
@@ -86,7 +89,7 @@ export default function Header({ scrolled }: HeaderProps) {
               </svg>
               <input
                 type="search"
-                placeholder={onService ? 'Buscar...' : 'Buscar productos...'}
+                placeholder={onService ? t.nav.searchGeneric : t.nav.searchProducts}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -94,7 +97,7 @@ export default function Header({ scrolled }: HeaderProps) {
           ) : null}
 
           <a href="#pedido" className="btn btn-primary header__cta-mobile" onClick={() => setOpen(false)}>
-            Pedido Online
+            {t.nav.order}
           </a>
         </nav>
 
@@ -107,16 +110,18 @@ export default function Header({ scrolled }: HeaderProps) {
               </svg>
               <input
                 type="search"
-                placeholder={onService ? 'Buscar...' : 'Buscar productos...'}
+                placeholder={onService ? t.nav.searchGeneric : t.nav.searchProducts}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                aria-label="Buscar"
+                aria-label={onService ? t.nav.searchGeneric : t.nav.searchProducts}
               />
             </form>
           ) : null}
 
+          <LanguageSwitcher />
+
           <a href="#pedido" className="btn btn-primary header__cta">
-            Pedido Online
+            {t.nav.order}
           </a>
         </div>
       </div>

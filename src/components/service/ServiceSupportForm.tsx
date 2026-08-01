@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react'
+import { useI18n } from '../../i18n/I18nProvider'
 import './ServiceSupportForm.css'
 
 export default function ServiceSupportForm() {
+  const { t } = useI18n()
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({
     name: '',
     company: '',
     email: '',
-    machine: 'Granizadora',
+    machine: t.service.machines[0],
     problem: '',
   })
 
@@ -20,11 +22,8 @@ export default function ServiceSupportForm() {
     <section id="soporte" className="support">
       <div className="container support__grid">
         <div className="support__copy reveal">
-          <h2>Solicitud de Soporte Directo</h2>
-          <p>
-            Completa el formulario y uno de nuestros técnicos se pondrá en contacto contigo en menos
-            de 4 horas laborables.
-          </p>
+          <h2>{t.service.formTitle}</h2>
+          <p>{t.service.formText}</p>
 
           <ul className="support__contacts">
             <li>
@@ -32,8 +31,8 @@ export default function ServiceSupportForm() {
                 ☎
               </span>
               <div>
-                <strong>Soporte Telefónico</strong>
-                <a href="tel:+34971886130">971 886 130</a>
+                <strong>{t.service.supportPhoneLabel}</strong>
+                <a href="tel:+34971886130">{t.productDetail.phone}</a>
               </div>
             </li>
             <li>
@@ -41,8 +40,8 @@ export default function ServiceSupportForm() {
                 ⌖
               </span>
               <div>
-                <strong>Ubicación Central</strong>
-                <span>C/ Pou de sa Sinia, nº 19, Binissalem, Mallorca</span>
+                <strong>{t.service.supportLocationLabel}</strong>
+                <span>{t.service.supportLocation}</span>
               </div>
             </li>
           </ul>
@@ -51,20 +50,20 @@ export default function ServiceSupportForm() {
         <form className="support__form reveal reveal-delay-1" onSubmit={onSubmit}>
           <div className="support__row">
             <label>
-              Nombre y Apellidos
+              {t.service.fields.name}
               <input
                 type="text"
-                placeholder="Tu nombre"
+                placeholder={t.service.placeholders.name}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
               />
             </label>
             <label>
-              Empresa
+              {t.service.fields.company}
               <input
                 type="text"
-                placeholder="Nombre de tu negocio"
+                placeholder={t.service.placeholders.company}
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 required
@@ -73,10 +72,10 @@ export default function ServiceSupportForm() {
           </div>
 
           <label>
-            Email de contacto
+            {t.service.fields.email}
             <input
               type="email"
-              placeholder="email@ejemplo.com"
+              placeholder={t.service.placeholders.email}
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
@@ -84,25 +83,22 @@ export default function ServiceSupportForm() {
           </label>
 
           <label>
-            Tipo de Maquinaria
+            {t.service.fields.machine}
             <select
               value={form.machine}
               onChange={(e) => setForm({ ...form, machine: e.target.value })}
             >
-              <option>Granizadora</option>
-              <option>Horchatera</option>
-              <option>Soft-Ice</option>
-              <option>Cafetera</option>
-              <option>Milkshake Mixer</option>
-              <option>Otra</option>
+              {t.service.machines.map((machine) => (
+                <option key={machine}>{machine}</option>
+              ))}
             </select>
           </label>
 
           <label>
-            Descripción del problema
+            {t.service.fields.message}
             <textarea
               rows={4}
-              placeholder="Explícanos brevemente qué sucede..."
+              placeholder={t.service.placeholders.message}
               value={form.problem}
               onChange={(e) => setForm({ ...form, problem: e.target.value })}
               required
@@ -111,12 +107,12 @@ export default function ServiceSupportForm() {
 
           <button type="submit" className="btn btn-primary support__submit">
             <span aria-hidden="true">✈</span>
-            Enviar Solicitud
+            {t.service.fields.submit}
           </button>
 
           {sent ? (
             <p className="support__feedback" role="status">
-              Solicitud enviada. Un técnico te contactará pronto.
+              {t.service.feedback}
             </p>
           ) : null}
         </form>

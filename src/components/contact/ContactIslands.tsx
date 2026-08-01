@@ -1,20 +1,20 @@
+import { useI18n } from '../../i18n/I18nProvider'
 import './ContactIslands.css'
 
 export default function ContactIslands() {
+  const { t } = useI18n()
+
   return (
     <section className="islands">
       <div className="container">
         <div className="islands__head reveal">
           <div>
-            <h2>Presencia en las Islas</h2>
-            <p>
-              Contamos con una sólida red de distribución y servicio técnico en Menorca e Ibiza
-              para garantizar que tu negocio nunca se detenga.
-            </p>
+            <h2>{t.contact.islandsTitle}</h2>
+            <p>{t.contact.islandsText}</p>
           </div>
           <span className="islands__stock">
             <span className="islands__dot" aria-hidden="true" />
-            Stock disponible
+            {t.contact.stockAvailable}
           </span>
         </div>
 
@@ -22,41 +22,40 @@ export default function ContactIslands() {
           <article className="island-card island-card--navy reveal">
             <div className="island-card__top">
               <h3>
-                Menorca <span className="island-card__badge island-card__badge--green">Activo</span>
+                {t.contact.menorcaTitle}{' '}
+                <span className="island-card__badge island-card__badge--green">
+                  {t.contact.menorcaBadge}
+                </span>
               </h3>
             </div>
-            <p>
-              Servicio logístico semanal y asistencia técnica in situ para todos nuestros clientes
-              de hostelería menorquines.
-            </p>
+            <p>{t.contact.menorcaText}</p>
             <ul>
-              <li>Distribución en Mahón y Ciutadella</li>
-              <li>Soporte técnico 24/48h</li>
-              <li>Catálogo completo de granizados</li>
+              {t.contact.menorcaList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
             <a href="mailto:socobalear@colonette.com?subject=Delegado%20Menorca">
-              Contactar Delegado Menorca →
+              {t.contact.menorcaCta}
             </a>
           </article>
 
           <article className="island-card island-card--light reveal reveal-delay-1">
             <div className="island-card__top">
               <h3>
-                Ibiza &amp; Formentera{' '}
-                <span className="island-card__badge island-card__badge--orange">Premium</span>
+                {t.contact.ibizaTitle}{' '}
+                <span className="island-card__badge island-card__badge--orange">
+                  {t.contact.ibizaBadge}
+                </span>
               </h3>
             </div>
-            <p>
-              Especialistas en suministro para Beach Clubs y Hoteles Boutique de gran volumen en la
-              isla blanca.
-            </p>
+            <p>{t.contact.ibizaText}</p>
             <ul>
-              <li>Suministro urgente temporada alta</li>
-              <li>Línea especial Cocktail Tropical</li>
-              <li>Mantenimiento preventivo preventa</li>
+              {t.contact.ibizaList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
             <a href="mailto:socobalear@colonette.com?subject=Distribucion%20Ibiza">
-              Consultar Distribución Ibiza →
+              {t.contact.ibizaCta}
             </a>
           </article>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { categories, type Product, type ProductCategory } from '../../data/products'
+import { useCategories, type Product, type ProductCategory } from '../../data/products'
+import { useI18n } from '../../i18n/I18nProvider'
 import './ProductsCatalog.css'
 
 type Props = {
@@ -17,14 +18,16 @@ export default function ProductsCatalog({
   onSortChange,
   items,
 }: Props) {
+  const { t } = useI18n()
+  const categories = useCategories()
   const categoryLabel =
-    categories.find((c) => c.id === category)?.label ?? 'Todas las categorías'
+    categories.find((c) => c.id === category)?.label ?? t.productsPage.allCategoriesLabel
 
   return (
     <section id="catalogo" className="catalog">
       <div className="container catalog__layout">
         <aside className="catalog__sidebar reveal">
-          <h2>Categorías</h2>
+          <h2>{t.productsPage.categoriesTitle}</h2>
           <ul className="catalog__categories">
             {categories.map((item) => (
               <li key={item.id}>
@@ -44,9 +47,9 @@ export default function ProductsCatalog({
             <span className="catalog__help-icon" aria-hidden="true">
               ?
             </span>
-            <p>¿Necesitas ayuda? Contáctanos para presupuestos personalizados o servicio técnico.</p>
+            <p>{t.productsPage.helpText}</p>
             <Link to="/contacto">
-              Ir a contacto
+              {t.productsPage.helpCta}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M7 17L17 7M17 7H9M17 7v8"
@@ -63,19 +66,25 @@ export default function ProductsCatalog({
         <div className="catalog__main reveal reveal-delay-1">
           <div className="catalog__toolbar">
             <div>
-              <h2>Explora nuestro catálogo</h2>
+              <h2>{t.productsPage.catalogTitle}</h2>
               <p>
-                Mostrando {category === 'todos' ? 'todas las categorías' : categoryLabel.toLowerCase()}{' '}
-                ({items.length})
+                {t.productsPage.results
+                  .replace(
+                    '{category}',
+                    category === 'todos'
+                      ? t.productsPage.allCategoriesLabel
+                      : categoryLabel.toLowerCase(),
+                  )
+                  .replace('{count}', String(items.length))}
               </p>
             </div>
 
             <label className="catalog__sort">
-              <span>Ordenar por:</span>
+              <span>{t.productsPage.sortLabel}</span>
               <select value={sort} onChange={(e) => onSortChange(e.target.value)}>
-                <option value="destacados">Destacados</option>
-                <option value="nombre">Nombre</option>
-                <option value="categoria">Categoría</option>
+                <option value="destacados">{t.productsPage.sortFeatured}</option>
+                <option value="nombre">{t.productsPage.sortName}</option>
+                <option value="categoria">{t.productsPage.sortCategory}</option>
               </select>
             </label>
           </div>
@@ -105,7 +114,7 @@ export default function ProductsCatalog({
           </div>
 
           {items.length === 0 ? (
-            <p className="catalog__empty">No hay productos que coincidan con tu búsqueda.</p>
+            <p className="catalog__empty">{t.productsPage.empty}</p>
           ) : null}
         </div>
       </div>

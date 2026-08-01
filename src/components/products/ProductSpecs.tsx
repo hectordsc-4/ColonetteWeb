@@ -1,3 +1,4 @@
+import { useI18n } from '../../i18n/I18nProvider'
 import './ProductSpecs.css'
 
 type Props = {
@@ -5,6 +6,8 @@ type Props = {
 }
 
 export default function ProductSpecs({ specs }: Props) {
+  const { t } = useI18n()
+
   return (
     <section id="specs" className="specs">
       <div className="container specs__wrap">
@@ -23,7 +26,7 @@ export default function ProductSpecs({ specs }: Props) {
                 strokeLinejoin="round"
               />
             </svg>
-            <h2>Especificaciones Técnicas</h2>
+            <h2>{t.productDetail.specsTitle}</h2>
           </header>
           <dl className="specs__list">
             {specs.map((item) => (

@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import { I18nProvider } from './i18n/I18nProvider.tsx'
 import App from './App.tsx'
 import HomePage from './pages/HomePage.tsx'
 import ProductsPage from './pages/ProductsPage.tsx'
@@ -30,6 +31,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <I18nProvider>
+      <RouterProvider router={router} />
+    </I18nProvider>
   </StrictMode>,
 )

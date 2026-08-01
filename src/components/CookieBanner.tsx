@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { useI18n } from '../i18n/I18nProvider'
 import './CookieBanner.css'
 
 const KEY = 'colonette-cookies'
 
 export default function CookieBanner() {
+  const { t } = useI18n()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -34,18 +36,15 @@ export default function CookieBanner() {
             <circle cx="12.5" cy="14" r="1.3" fill="currentColor" />
           </svg>
         </span>
-        <h2 id="cookies-title">Preferencias de Cookies</h2>
+        <h2 id="cookies-title">{t.cookie.title}</h2>
       </div>
-      <p>
-        Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico del
-        sitio. Puedes aceptar todas o configurar tus preferencias.
-      </p>
+      <p>{t.cookie.text}</p>
       <div className="cookies__actions">
         <button type="button" className="btn btn-primary" onClick={accept}>
-          Aceptar Todas
+          {t.cookie.accept}
         </button>
         <button type="button" className="cookies__config" onClick={configure}>
-          Configurar
+          {t.cookie.configure}
         </button>
       </div>
     </aside>

@@ -1,40 +1,46 @@
 import { Link } from 'react-router-dom'
-import { newsItems } from '../data/news'
+import { useI18n } from '../i18n/I18nProvider'
+import { img } from '../data/images'
 import './NewsPage.css'
 
-const featured = newsItems.find((n) => n.featured) ?? newsItems[0]
-const rest = newsItems.filter((n) => n.id !== featured.id)
-
 export default function NewsPage() {
+  const { t } = useI18n()
+
+  const items = [
+    { key: 'featured' as const, image: img.newsFeatured, featured: true },
+    { key: 'soft' as const, image: img.newsSoft },
+    { key: 'catalog' as const, image: img.newsCatalog },
+    { key: 'service' as const, image: img.newsService },
+    { key: 'cafe' as const, image: img.newsCafe },
+    { key: 'islands' as const, image: img.newsIslands },
+  ].map((item) => ({ ...item, ...t.news.items[item.key] }))
+
+  const featured = items.find((item) => item.featured) ?? items[0]
+  const rest = items.filter((item) => item.key !== featured.key)
+
   return (
     <main className="news-page">
       <section className="news-hero">
         <div className="container news-hero__grid">
           <div className="news-hero__copy reveal-immediate">
-            <p className="news-hero__eyebrow">Actualidad Colonette</p>
+            <p className="news-hero__eyebrow">{t.news.eyebrow}</p>
             <h1>
-              Novedades que refrescan el <span>Mediterráneo</span>
+              {t.news.titleBefore} <span>{t.news.titleAccent}</span>
             </h1>
-            <p className="news-hero__text">
-              Productos, maquinaria y servicio para hostelería en Baleares. Mantente al día con
-              lanzamientos, mejoras y lo que viene esta temporada.
-            </p>
+            <p className="news-hero__text">{t.news.text}</p>
             <div className="news-hero__actions">
               <a href="#noticias" className="btn btn-primary">
-                Ver noticias
+                {t.news.ctaNews}
                 <span aria-hidden="true">→</span>
               </a>
               <Link to="/productos" className="btn btn-outline-brown">
-                Ir al catálogo
+                {t.news.ctaCatalog}
               </Link>
             </div>
           </div>
 
           <figure className="news-hero__media reveal-immediate reveal-delay-1">
-            <img
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80"
-              alt="Costa mediterránea al atardecer"
-            />
+            <img src={img.newsHero} alt={t.news.titleBefore} />
           </figure>
         </div>
       </section>
@@ -47,11 +53,11 @@ export default function NewsPage() {
               <span className="news-tag">{featured.tag}</span>
             </div>
             <div className="news-featured__body">
-              <time dateTime="2026-07-15">{featured.date}</time>
+              <time>{featured.date}</time>
               <h2>{featured.title}</h2>
               <p>{featured.excerpt}</p>
               <Link to="/productos/granizados" className="btn btn-brown">
-                Descubrir producto
+                {t.news.discoverProduct}
               </Link>
             </div>
           </article>
@@ -59,7 +65,7 @@ export default function NewsPage() {
           <div className="news-grid">
             {rest.map((item, i) => (
               <article
-                key={item.id}
+                key={item.key}
                 className={`news-card reveal reveal-delay-${(i % 3) + 1}`}
               >
                 <div className="news-card__media">
@@ -80,18 +86,15 @@ export default function NewsPage() {
       <section className="news-cta">
         <div className="container news-cta__inner reveal">
           <div>
-            <h2>¿Quieres ser el primero en probarlo?</h2>
-            <p>
-              Habla con nuestro equipo comercial o solicita información sobre productos y
-              maquinaria para tu establecimiento.
-            </p>
+            <h2>{t.news.ctaTitle}</h2>
+            <p>{t.news.ctaText}</p>
           </div>
           <div className="news-cta__actions">
             <Link to="/contacto" className="btn btn-primary">
-              Contactar
+              {t.news.ctaContact}
             </Link>
             <Link to="/servicio-tecnico" className="btn btn-outline-light">
-              Servicio técnico
+              {t.news.ctaService}
             </Link>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { useI18n } from '../../i18n/I18nProvider'
 import './ProductDetailCta.css'
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 }
 
 export default function ProductDetailCta({ title, text }: Props) {
+  const { t } = useI18n()
+
   return (
     <section id="consulta" className="detail-cta">
       <div className="container detail-cta__inner">
@@ -21,14 +24,14 @@ export default function ProductDetailCta({ title, text }: Props) {
                 strokeLinejoin="round"
               />
             </svg>
-            Llámanos al 971 886 130
+            {t.productDetail.callUs} {t.productDetail.phone}
           </a>
           <a href="mailto:socobalear@colonette.com" className="btn detail-cta__mail">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.7" />
               <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.7" />
             </svg>
-            Enviar Consulta
+            {t.productDetail.sendInquiry}
           </a>
         </div>
       </div>

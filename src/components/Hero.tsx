@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
+import { img } from '../data/images'
 import './Hero.css'
 
-const HERO_BG =
-  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80'
-const SLUSHES =
-  'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=900&q=80'
-
 export default function Hero() {
+  const { t } = useI18n()
+
   return (
     <section id="inicio" className="hero">
       <div
         className="hero__bg"
-        style={{ backgroundImage: `url(${HERO_BG})` }}
+        style={{ backgroundImage: `url(${img.heroBg})` }}
         aria-hidden="true"
       />
       <div className="hero__veil" aria-hidden="true" />
@@ -34,35 +33,27 @@ export default function Hero() {
               />
               <path d="M9 19v-5h6v5" stroke="currentColor" strokeWidth="1.8" />
             </svg>
-            SABOR BALEAR AUTÉNTICO
+            {t.hero.badge}
           </span>
 
           <h1 className="hero__title reveal-immediate reveal-delay-1">
-            Tu paraíso refrescante
-            <span>en Baleares</span>
+            {t.hero.title}
           </h1>
 
-          <p className="hero__text reveal-immediate reveal-delay-2">
-            Elevamos la experiencia de la hostelería con granizados artesanos, cafés premium y
-            maquinaria de vanguardia. Disfruta del frescor que tus clientes merecen.
-          </p>
+          <p className="hero__text reveal-immediate reveal-delay-2">{t.hero.text}</p>
 
           <div className="hero__actions reveal-immediate reveal-delay-3">
             <Link to="/productos" className="btn btn-primary">
-              Descubrir Productos
+              {t.hero.ctaProducts}
             </Link>
             <Link to="/servicio-tecnico" className="btn btn-outline-orange">
-              Servicio Técnico
+              {t.hero.ctaService}
             </Link>
           </div>
         </div>
 
         <div className="hero__visual reveal-immediate reveal-delay-2">
-          <img
-            src={SLUSHES}
-            alt="Granizados de frutas artesanos Colonette"
-            className="hero__drinks"
-          />
+          <img src={img.heroCard} alt={t.hero.cardAlt} className="hero__drinks" />
           <aside className="hero__card">
             <div className="hero__card-icon" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -76,8 +67,8 @@ export default function Hero() {
               </svg>
             </div>
             <div>
-              <strong>Granizado Premium</strong>
-              <p>Sabor intenso a -5°C, perfecto para el verano mediterráneo.</p>
+              <strong>{t.hero.cardTitle}</strong>
+              <p>{t.hero.cardText}</p>
             </div>
           </aside>
         </div>

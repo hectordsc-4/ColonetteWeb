@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
 import './ContactChannels.css'
 
 export default function ContactChannels() {
+  const { t } = useI18n()
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({
     name: '',
     email: '',
-    subject: 'Información de productos',
+    subject: t.contact.formSubjectOptions[0],
     message: '',
     privacy: false,
   })
@@ -26,10 +28,10 @@ export default function ContactChannels() {
             <span className="channel-card__icon channel-card__icon--blue" aria-hidden="true">
               ☎
             </span>
-            <h2>Llámanos</h2>
-            <p>Lunes a Viernes de 8:00 a 18:00</p>
+            <h2>{t.contact.c1Title}</h2>
+            <p>{t.contact.c1Text}</p>
             <a href="tel:+34971886130" className="channel-card__value channel-card__value--phone">
-              971 886 130
+              {t.contact.c1Value}
             </a>
           </article>
 
@@ -37,42 +39,39 @@ export default function ContactChannels() {
             <span className="channel-card__icon channel-card__icon--green" aria-hidden="true">
               ✉
             </span>
-            <h2>Email</h2>
-            <p>Respondemos en menos de 24h</p>
+            <h2>{t.contact.c2Title}</h2>
+            <p>{t.contact.c2Text}</p>
             <a href="mailto:socobalear@colonette.com" className="channel-card__value">
-              socobalear@colonette.com
+              {t.contact.c2Value}
             </a>
           </article>
 
           <article className="channel-card channel-card--assist">
-            <p className="channel-card__eyebrow">Asistencia técnica</p>
-            <p>
-              ¿Necesitas ayuda con tu maquinaria? Accede a nuestros manuales detallados o contacta
-              directamente con soporte técnico.
-            </p>
-            <Link to="/servicio-tecnico">Ir a Servicio Técnico →</Link>
+            <p className="channel-card__eyebrow">{t.contact.c3Title}</p>
+            <p>{t.contact.c3Text}</p>
+            <Link to="/servicio-tecnico">{t.contact.c3Cta}</Link>
           </article>
         </aside>
 
         <form className="channels__form reveal reveal-delay-1" onSubmit={onSubmit}>
-          <h2>Envíanos un mensaje</h2>
+          <h2>{t.contact.formTitle}</h2>
 
           <div className="channels__row">
             <label>
-              Nombre completo
+              {t.contact.formName}
               <input
                 type="text"
-                placeholder="Tu nombre..."
+                placeholder={t.contact.placeholders.name}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
               />
             </label>
             <label>
-              Correo electrónico
+              {t.contact.formEmail}
               <input
                 type="email"
-                placeholder="email@ejemplo.com"
+                placeholder={t.contact.placeholders.email}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
@@ -81,24 +80,22 @@ export default function ContactChannels() {
           </div>
 
           <label>
-            Asunto
+            {t.contact.formSubject}
             <select
               value={form.subject}
               onChange={(e) => setForm({ ...form, subject: e.target.value })}
             >
-              <option>Información de productos</option>
-              <option>Pedido / presupuesto</option>
-              <option>Servicio técnico</option>
-              <option>Distribución</option>
-              <option>Otro</option>
+              {t.contact.formSubjectOptions.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
             </select>
           </label>
 
           <label>
-            Mensaje
+            {t.contact.formMessage}
             <textarea
               rows={5}
-              placeholder="¿En qué podemos ayudarte?"
+              placeholder={t.contact.placeholders.message}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               required
@@ -113,20 +110,19 @@ export default function ContactChannels() {
               required
             />
             <span>
-              Acepto la{' '}
-              <a href="#privacidad">política de privacidad</a> y el tratamiento de mis datos para
-              fines de contacto.
+              {t.contact.privacyText} <a href="#privacidad">{t.contact.privacyLink}</a>{' '}
+              {t.contact.privacyAfter}
             </span>
           </label>
 
           <button type="submit" className="btn btn-primary channels__submit">
-            Enviar Mensaje
+            {t.contact.formSubmit}
             <span aria-hidden="true">✈</span>
           </button>
 
           {sent ? (
             <p className="channels__feedback" role="status">
-              Mensaje enviado. Te responderemos pronto.
+              {t.contact.sentFeedback}
             </p>
           ) : null}
         </form>

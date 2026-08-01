@@ -1,12 +1,16 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useI18n } from '../i18n/I18nProvider'
 import './Footer.css'
 
 export default function Footer() {
+  const { t } = useI18n()
   const pathname = useLocation().pathname
   const isProducts = pathname.startsWith('/productos')
   const isDetail = /^\/productos\/[^/]+$/.test(pathname)
   const isService = pathname.startsWith('/servicio-tecnico')
   const isContact = pathname.startsWith('/contacto')
+
+  const rightsLine = `© ${new Date().getFullYear()} Colonette — ${t.footer.allRights}`
 
   if (isDetail) {
     return (
@@ -16,34 +20,31 @@ export default function Footer() {
             <Link to="/" className="footer__logo">
               Colonette
             </Link>
-            <p>
-              Su partner de confianza en productos refrescantes y maquinaria de hostelería en las
-              Islas Baleares.
-            </p>
+            <p>{t.footer.brandDetail}</p>
           </div>
 
           <div>
-            <h3>Navegación</h3>
+            <h3>{t.footer.navigation}</h3>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/novedades">Novedades</Link></li>
-              <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
-              <li><Link to="/contacto">Contacto</Link></li>
+              <li><Link to="/">{t.nav.home}</Link></li>
+              <li><Link to="/productos">{t.nav.products}</Link></li>
+              <li><Link to="/novedades">{t.nav.news}</Link></li>
+              <li><Link to="/servicio-tecnico">{t.nav.service}</Link></li>
+              <li><Link to="/contacto">{t.nav.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3>Legal</h3>
+            <h3>{t.footer.legal}</h3>
             <ul>
-              <li><a href="#aviso">Aviso Legal</a></li>
-              <li><a href="#privacidad">Privacidad</a></li>
-              <li><a href="#cookies">Cookies</a></li>
+              <li><a href="#aviso">{t.footer.notice}</a></li>
+              <li><a href="#privacidad">{t.footer.privacy}</a></li>
+              <li><a href="#cookies">{t.footer.cookies}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3>Síguenos</h3>
+            <h3>{t.footer.follow}</h3>
             <div className="footer__social">
               <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -65,7 +66,7 @@ export default function Footer() {
         </div>
 
         <div className="container footer__bottom">
-          <p>© {new Date().getFullYear()} Colonette — Todos los derechos reservados</p>
+          <p>{rightsLine}</p>
         </div>
       </footer>
     )
@@ -79,10 +80,7 @@ export default function Footer() {
             <Link to="/" className="footer__logo">
               Colonette
             </Link>
-            <p>
-              Proveedores líderes en hostelería para las Islas Baleares. Calidad, frescura y servicio
-              técnico excepcional.
-            </p>
+            <p>{t.footer.brandService}</p>
             <div className="footer__social">
               <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -103,27 +101,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3>Enlaces Rápidos</h3>
+            <h3>{t.footer.quickLinks}</h3>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/servicio-tecnico" className="is-active-link">Servicio Técnico</Link></li>
-              <li><Link to="/novedades">Novedades</Link></li>
-              <li><Link to="/contacto">Contacto</Link></li>
+              <li><Link to="/">{t.nav.home}</Link></li>
+              <li><Link to="/productos">{t.nav.products}</Link></li>
+              <li><Link to="/servicio-tecnico" className="is-active-link">{t.nav.service}</Link></li>
+              <li><Link to="/novedades">{t.nav.news}</Link></li>
+              <li><Link to="/contacto">{t.nav.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3>Legal</h3>
+            <h3>{t.footer.legal}</h3>
             <ul>
-              <li><a href="#aviso">Aviso Legal</a></li>
-              <li><a href="#privacidad">Privacidad</a></li>
-              <li><a href="#cookies">Cookies</a></li>
+              <li><a href="#aviso">{t.footer.notice}</a></li>
+              <li><a href="#privacidad">{t.footer.privacy}</a></li>
+              <li><a href="#cookies">{t.footer.cookies}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3>Contacto Directo</h3>
+            <h3>{t.footer.directContact}</h3>
             <ul className="footer__contact">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -159,7 +157,7 @@ export default function Footer() {
         </div>
 
         <div className="container footer__bottom">
-          <p>© {new Date().getFullYear()} Colonette — Todos los derechos reservados</p>
+          <p>{rightsLine}</p>
         </div>
       </footer>
     )
@@ -173,33 +171,30 @@ export default function Footer() {
             <Link to="/" className="footer__logo">
               Colonette
             </Link>
-            <p>
-              Llevando el sabor del paraíso a los mejores establecimientos de Baleares desde hace
-              décadas.
-            </p>
+            <p>{t.footer.brandContact}</p>
           </div>
 
           <div>
-            <h3>Explorar</h3>
+            <h3>{t.footer.explore}</h3>
             <ul>
-              <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
-              <li><Link to="/novedades">Novedades</Link></li>
-              <li><Link to="/contacto" className="is-active-link">Contacto</Link></li>
+              <li><Link to="/productos">{t.nav.products}</Link></li>
+              <li><Link to="/servicio-tecnico">{t.nav.service}</Link></li>
+              <li><Link to="/novedades">{t.nav.news}</Link></li>
+              <li><Link to="/contacto" className="is-active-link">{t.nav.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3>Legal</h3>
+            <h3>{t.footer.legal}</h3>
             <ul>
-              <li><a href="#aviso">Aviso Legal</a></li>
-              <li><a href="#privacidad">Privacidad</a></li>
-              <li><a href="#cookies">Cookies</a></li>
+              <li><a href="#aviso">{t.footer.notice}</a></li>
+              <li><a href="#privacidad">{t.footer.privacy}</a></li>
+              <li><a href="#cookies">{t.footer.cookies}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3>Síguenos</h3>
+            <h3>{t.footer.follow}</h3>
             <div className="footer__social">
               <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -217,9 +212,7 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="footer__copy-inline">
-              © {new Date().getFullYear()} Colonette — Todos los derechos reservados
-            </p>
+            <p className="footer__copy-inline">{rightsLine}</p>
           </div>
         </div>
       </footer>
@@ -233,11 +226,7 @@ export default function Footer() {
           <Link to="/" className="footer__logo">
             Colonette
           </Link>
-          <p>
-            {isProducts
-              ? 'Empresa proveedora líder de granizados, helados y cafés en las Islas Baleares. Calidad y tradición desde Mallorca.'
-              : 'Líderes en soluciones refrescantes para hostelería en Baleares. Calidad, servicio y tradición desde Binissalem.'}
-          </p>
+          <p>{isProducts ? t.footer.brandProducts : t.footer.brandHome}</p>
           <div className="footer__social">
             <a href="https://colonette.com" aria-label="Sitio web" target="_blank" rel="noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -249,7 +238,7 @@ export default function Footer() {
                 />
               </svg>
             </a>
-            <a href="#pedido" aria-label="Compartir">
+            <a href="#pedido" aria-label={t.cart.label}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle cx="6" cy="12" r="2.2" stroke="currentColor" strokeWidth="1.7" />
                 <circle cx="18" cy="6" r="2.2" stroke="currentColor" strokeWidth="1.7" />
@@ -262,50 +251,50 @@ export default function Footer() {
 
         {isProducts ? (
           <div>
-            <h3>Productos</h3>
+            <h3>{t.footer.products}</h3>
             <ul>
-              <li><Link to="/productos/granizados">Granizados</Link></li>
-              <li><Link to="/productos/horchata">Horchata de Chufa</Link></li>
-              <li><Link to="/productos/cafe">Café Colonette</Link></li>
-              <li><Link to="/productos/soft-ice">Soft Ice</Link></li>
-              <li><Link to="/productos/yogurt">Yogurt Natural</Link></li>
+              <li><Link to="/productos/granizados">{t.footer.productLinks.granizados}</Link></li>
+              <li><Link to="/productos/horchata">{t.footer.productLinks.horchata}</Link></li>
+              <li><Link to="/productos/cafe">{t.footer.productLinks.cafe}</Link></li>
+              <li><Link to="/productos/soft-ice">{t.footer.productLinks.softIce}</Link></li>
+              <li><Link to="/productos/yogurt">{t.footer.productLinks.yogurt}</Link></li>
             </ul>
           </div>
         ) : (
           <div>
-            <h3>Empresa</h3>
+            <h3>{t.footer.company}</h3>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/novedades">Novedades</Link></li>
-              <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
+              <li><Link to="/">{t.nav.home}</Link></li>
+              <li><Link to="/productos">{t.nav.products}</Link></li>
+              <li><Link to="/novedades">{t.nav.news}</Link></li>
+              <li><Link to="/servicio-tecnico">{t.nav.service}</Link></li>
             </ul>
           </div>
         )}
 
         <div>
-          <h3>{isProducts ? 'Empresa' : 'Legal'}</h3>
+          <h3>{isProducts ? t.footer.company : t.footer.legal}</h3>
           <ul>
             {isProducts ? (
               <>
-                <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
-                <li><Link to="/novedades">Novedades</Link></li>
-                <li><a href="#distribuidor">Distribuidores</a></li>
-                <li><a href="#privacidad">Privacidad</a></li>
-                <li><a href="#aviso">Aviso Legal</a></li>
+                <li><Link to="/servicio-tecnico">{t.nav.service}</Link></li>
+                <li><Link to="/novedades">{t.nav.news}</Link></li>
+                <li><a href="#distribuidor">{t.footer.distributors}</a></li>
+                <li><a href="#privacidad">{t.footer.privacy}</a></li>
+                <li><a href="#aviso">{t.footer.notice}</a></li>
               </>
             ) : (
               <>
-                <li><a href="#aviso">Aviso Legal</a></li>
-                <li><a href="#privacidad">Privacidad</a></li>
-                <li><a href="#cookies">Cookies</a></li>
+                <li><a href="#aviso">{t.footer.notice}</a></li>
+                <li><a href="#privacidad">{t.footer.privacy}</a></li>
+                <li><a href="#cookies">{t.footer.cookies}</a></li>
               </>
             )}
           </ul>
         </div>
 
         <div>
-          <h3>Contacto</h3>
+          <h3>{t.nav.contact}</h3>
           <ul className="footer__contact">
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -345,9 +334,9 @@ export default function Footer() {
       </div>
 
       <div className="container footer__bottom">
-        <p>© {new Date().getFullYear()} Colonette — Todos los derechos reservados</p>
+        <p>{rightsLine}</p>
         <div className="footer__bottom-links">
-          {isProducts ? <a href="#cookies">Cookies</a> : null}
+          {isProducts ? <a href="#cookies">{t.footer.cookies}</a> : null}
           <a href="https://instagram.com" target="_blank" rel="noreferrer">
             Instagram
           </a>

@@ -1,3 +1,4 @@
+import { useI18n } from '../../i18n/I18nProvider'
 import './ProductGallery.css'
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
 }
 
 export default function ProductGallery({ title, images, activeIndex, onSelect }: Props) {
+  const { t } = useI18n()
+
   return (
     <div className="gallery">
       <div className="gallery__main">
@@ -20,7 +23,7 @@ export default function ProductGallery({ title, images, activeIndex, onSelect }:
             type="button"
             className={index === activeIndex ? 'is-active' : undefined}
             onClick={() => onSelect(index)}
-            aria-label={`Ver imagen ${index + 1}`}
+            aria-label={t.productDetail.galleryLabel.replace('{index}', String(index + 1))}
           >
             <img src={src} alt="" />
           </button>

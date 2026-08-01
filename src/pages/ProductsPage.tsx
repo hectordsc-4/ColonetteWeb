@@ -3,10 +3,13 @@ import { useSearchParams } from 'react-router-dom'
 import ProductsHero from '../components/products/ProductsHero'
 import ProductsCatalog from '../components/products/ProductsCatalog'
 import DistributorCta from '../components/products/DistributorCta'
-import { type ProductCategory, products } from '../data/products'
+import { useProducts, type ProductCategory } from '../data/products'
+import { useI18n } from '../i18n/I18nProvider'
 import './ProductsPage.css'
 
 export default function ProductsPage() {
+  const { locale } = useI18n()
+  const products = useProducts()
   const [searchParams] = useSearchParams()
   const [category, setCategory] = useState<ProductCategory>('todos')
   const [query, setQuery] = useState(searchParams.get('q') ?? '')
@@ -28,15 +31,15 @@ export default function ProductsPage() {
     })
 
     if (sort === 'nombre') {
-      list = [...list].sort((a, b) => a.title.localeCompare(b.title, 'es'))
+      list = [...list].sort((a, b) => a.title.localeCompare(b.title, locale))
     } else if (sort === 'categoria') {
-      list = [...list].sort((a, b) => a.category.localeCompare(b.category, 'es'))
+      list = [...list].sort((a, b) => a.category.localeCompare(b.category, locale))
     } else {
       list = [...list].sort((a, b) => Number(b.featured) - Number(a.featured))
     }
 
     return list
-  }, [category, query, sort])
+  }, [products, category, query, sort, locale])
 
   return (
     <main className="products-page">

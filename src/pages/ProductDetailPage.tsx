@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { getProductById } from '../data/products'
+import { useProductById } from '../data/products'
+import { useI18n } from '../i18n/I18nProvider'
 import ProductGallery from '../components/products/ProductGallery'
 import ProductWhy from '../components/products/ProductWhy'
 import ProductSpecs from '../components/products/ProductSpecs'
@@ -46,8 +47,9 @@ const highlightIcon = (icon: string) => {
 }
 
 export default function ProductDetailPage() {
+  const { t } = useI18n()
   const { productId } = useParams()
-  const product = productId ? getProductById(productId) : undefined
+  const product = useProductById(productId)
   const [activeImage, setActiveImage] = useState(0)
 
   useEffect(() => {
@@ -65,7 +67,7 @@ export default function ProductDetailPage() {
       <section className="detail-hero">
         <div className="container">
           <Link to="/productos" className="detail-back reveal-immediate">
-            ← Volver al catálogo
+            ← {t.productDetail.back}
           </Link>
 
           <div className="detail-panel reveal-immediate reveal-delay-1">
@@ -109,11 +111,11 @@ export default function ProductDetailPage() {
                   <span className="detail-actions__info" aria-hidden="true">
                     i
                   </span>
-                  Solicitar información
+                  {t.productDetail.requestInfo}
                 </a>
                 <a href="#specs" className="btn btn-outline-brown">
                   <span aria-hidden="true">↓</span>
-                  Manual PDF
+                  {t.productDetail.manualPdf}
                 </a>
               </div>
             </div>

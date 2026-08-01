@@ -1,49 +1,50 @@
 import { Link } from 'react-router-dom'
+import { useI18n } from '../../i18n/I18nProvider'
+import { img } from '../../data/images'
 import './ProductsHero.css'
 
-const collage = [
-  {
-    src: 'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=700&q=80',
-    alt: 'Granizado Colonette',
-    className: 'products-hero__shot--promo',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80',
-    alt: 'Café Colonette',
-    className: 'products-hero__shot--coffee',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80',
-    alt: 'Batido premium',
-    className: 'products-hero__shot--shake',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=600&q=80',
-    alt: 'Máquina Soft Ice',
-    className: 'products-hero__shot--soft',
-  },
-]
-
 export default function ProductsHero() {
+  const { t } = useI18n()
+
+  const collage = [
+    {
+      src: img.productsHeroGranizado,
+      alt: t.productsPage.altGranizado,
+      className: 'products-hero__shot--promo',
+    },
+    {
+      src: img.productsHeroCafe,
+      alt: t.productsPage.altCafe,
+      className: 'products-hero__shot--coffee',
+    },
+    {
+      src: img.productsHeroBatido,
+      alt: t.productsPage.altShake,
+      className: 'products-hero__shot--shake',
+    },
+    {
+      src: img.productsHeroMaquina,
+      alt: t.productsPage.altMachine,
+      className: 'products-hero__shot--soft',
+    },
+  ]
+
   return (
     <section className="products-hero">
       <div className="container products-hero__grid">
         <div className="products-hero__copy reveal-immediate">
-          <p className="products-hero__eyebrow">Catálogo oficial 2024</p>
+          <p className="products-hero__eyebrow">{t.productsPage.eyebrow}</p>
           <h1>
-            Refrescando cada rincón del <span>Mediterráneo</span>
+            {t.productsPage.titleBefore} <span>{t.productsPage.titleAccent}</span>
           </h1>
-          <p className="products-hero__text">
-            Descubre nuestra selección exclusiva de productos para hostelería. Desde el icónico
-            granizado de almendra hasta la tecnología Soft-ice más avanzada.
-          </p>
+          <p className="products-hero__text">{t.productsPage.text}</p>
           <div className="products-hero__actions">
             <Link to="/novedades" className="btn btn-primary">
-              Ver Novedades
+              {t.productsPage.ctaNews}
               <span aria-hidden="true">→</span>
             </Link>
             <a href="#catalogo" className="btn btn-outline-brown">
-              Descargar Catálogo
+              {t.productsPage.ctaCatalog}
             </a>
           </div>
         </div>
