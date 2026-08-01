@@ -6,8 +6,7 @@ export function asset(path: string): string {
 
 export const img = {
   // —— Home ——
-  heroBg: asset('images/foto-local-1.jpg'),
-  heroCard: asset('images/vaso-limon.jpg'),
+  heroBg: asset('images/hero-home.jpg'),
   almond: asset('images/granizado-almendra.png'),
   collectionGranizados: asset('images/granizados-refrescantes.png'),
   collectionCafes: asset('images/cafe.png'),
