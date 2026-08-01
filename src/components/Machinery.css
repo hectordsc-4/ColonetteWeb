@@ -1,0 +1,58 @@
+.machinery {
+  padding: 0 0 var(--section-y);
+  background: #fff;
+}
+
+.machinery__banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--blue-wash);
+  background-size: cover;
+  background-position: right center;
+  padding: 3.5rem 3.25rem;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+  isolation: isolate;
+}
+
+.machinery__banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 246, 250, 0.88) 48%, rgba(240, 246, 250, 0.35) 100%);
+  z-index: 0;
+}
+
+.machinery__copy {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+}
+
+.machinery__copy h2 {
+  color: var(--blue);
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+}
+
+.machinery__copy p {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.machinery__actions {
+  margin-top: 1.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+@media (max-width: 700px) {
+  .machinery__banner {
+    padding: 2.4rem 1.5rem;
+    background-position: center;
+  }
+}

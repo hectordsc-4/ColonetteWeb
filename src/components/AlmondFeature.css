@@ -1,0 +1,105 @@
+.almond {
+  padding: var(--section-y) 0;
+  background: var(--bg);
+}
+
+.almond__grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.almond__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.almond__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.almond__media:hover img {
+  transform: scale(1.04);
+}
+
+.almond__badge {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.1rem;
+  z-index: 1;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(139, 90, 43, 0.3);
+  color: var(--brown);
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(8px);
+}
+
+.almond__content h2 {
+  color: var(--blue);
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+}
+
+.almond__content > p {
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 1.04rem;
+  max-width: 36rem;
+}
+
+.almond__content strong {
+  color: var(--ink);
+}
+
+.almond__features {
+  margin: 1.85rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+}
+
+.almond__features li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.almond__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  background: var(--green-soft);
+  box-shadow: inset 0 0 0 1px rgba(92, 158, 110, 0.15);
+}
+
+@media (max-width: 900px) {
+  .almond__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .almond__media img {
+    aspect-ratio: 5 / 4;
+  }
+}
+
+@media (max-width: 520px) {
+  .almond__features {
+    grid-template-columns: 1fr;
+  }
+}

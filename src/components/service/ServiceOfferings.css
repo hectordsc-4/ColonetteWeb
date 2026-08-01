@@ -1,0 +1,216 @@
+.offerings {
+  padding: var(--section-y) 0 3rem;
+  background: linear-gradient(180deg, #fff 0%, var(--blue-wash) 100%);
+}
+
+.offerings__intro {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+}
+
+.offerings__intro h2 {
+  color: var(--blue);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+}
+
+.offerings__intro p {
+  margin-top: 0.85rem;
+  color: var(--muted);
+}
+
+.offerings__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  grid-template-areas:
+    'install navy'
+    'manuals training';
+  gap: 1.15rem;
+}
+
+.offer-card {
+  border-radius: var(--radius);
+  padding: 1.55rem;
+  background: #fff;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.offer-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.offer-card__icon--blue {
+  background: #e5f0f8;
+}
+
+.offer-card__icon--green {
+  background: rgba(92, 158, 110, 0.2);
+  color: #2f7a45;
+  font-weight: 700;
+}
+
+.offer-card__icon--brown {
+  background: #f4e7d8;
+}
+
+.offer-card h3 {
+  font-family: var(--font-brand);
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 0.65rem;
+}
+
+.offer-card p {
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.offer-card--install {
+  grid-area: install;
+}
+
+.offer-card--install img {
+  margin-top: 1.25rem;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.offer-card--navy {
+  grid-area: navy;
+  background: linear-gradient(160deg, #0f2744, #163456);
+  border-color: transparent;
+  color: #fff;
+}
+
+.offer-card--navy h3,
+.offer-card--navy p {
+  color: #fff;
+}
+
+.offer-card--navy ul {
+  margin-top: 1.15rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.offer-card--navy li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.offer-card--navy li::before {
+  content: '✓';
+  color: #7cbc8a;
+  font-weight: 700;
+}
+
+.offer-card--manuals {
+  grid-area: manuals;
+  background: #f7f8fa;
+}
+
+.offer-card__downloads {
+  margin-top: 1.1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.offer-card__downloads li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border: 1px solid var(--line);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.offer-card__downloads li:hover {
+  border-color: rgba(0, 86, 145, 0.3);
+  transform: translateX(2px);
+}
+
+.offer-card__downloads a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  background: var(--blue-soft);
+  font-weight: 700;
+}
+
+.offer-card--training {
+  grid-area: training;
+  background: #eef3f7;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.offer-card--training .offer-card__copy {
+  padding: 1.55rem;
+}
+
+.offer-card--training img {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+}
+
+.offer-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .offerings__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'install'
+      'navy'
+      'manuals'
+      'training';
+  }
+
+  .offer-card--training {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card--training img {
+    min-height: 200px;
+  }
+}

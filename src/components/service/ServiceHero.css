@@ -1,0 +1,70 @@
+.service-hero {
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  padding: 4.75rem 0;
+  overflow: hidden;
+}
+
+.service-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: ken-burns 20s ease-out forwards;
+}
+
+.service-hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 40%, rgba(0, 61, 102, 0.25) 100%),
+    linear-gradient(180deg, transparent, rgba(10, 22, 40, 0.12));
+}
+
+.service-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+}
+
+.service-hero__eyebrow {
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.service-hero__content h1 {
+  margin-top: 0.9rem;
+  color: var(--blue);
+  font-size: clamp(2.15rem, 4.2vw, 3.3rem);
+}
+
+.service-hero__text {
+  margin-top: 1.05rem;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.service-hero__actions {
+  margin-top: 1.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+@media (max-width: 700px) {
+  .service-hero {
+    min-height: auto;
+    padding: 3.25rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-hero__bg {
+    animation: none;
+  }
+}

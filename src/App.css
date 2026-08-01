@@ -1,0 +1,8 @@
+.app {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+main {
+  display: block;
+}
