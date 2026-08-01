@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ProductsHero.css'
 
 const collage = [
@@ -37,10 +38,10 @@ export default function ProductsHero() {
             granizado de almendra hasta la tecnología Soft-ice más avanzada.
           </p>
           <div className="products-hero__actions">
-            <a href="#catalogo" className="btn btn-primary">
+            <Link to="/novedades" className="btn btn-primary">
               Ver Novedades
               <span aria-hidden="true">→</span>
-            </a>
+            </Link>
             <a href="#catalogo" className="btn btn-outline-brown">
               Descargar Catálogo
             </a>

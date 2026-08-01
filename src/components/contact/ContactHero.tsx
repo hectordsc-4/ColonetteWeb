@@ -1,7 +1,7 @@
 import './ContactHero.css'
 
 const HERO_IMG =
-  'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=1400&q=80'
+  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80'
 
 export default function ContactHero() {
   return (

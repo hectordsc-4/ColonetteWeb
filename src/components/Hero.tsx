@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './Hero.css'
 
 const HERO_BG =
-  'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=1800&q=80'
+  'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80'
 const SLUSHES =
   'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=900&q=80'
 

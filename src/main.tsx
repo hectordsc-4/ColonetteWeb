@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage.tsx'
 import ProductDetailPage from './pages/ProductDetailPage.tsx'
 import ServicePage from './pages/ServicePage.tsx'
 import ContactPage from './pages/ContactPage.tsx'
+import NewsPage from './pages/NewsPage.tsx'
 
 const router = createBrowserRouter(
   [
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         { path: 'productos', element: <ProductsPage /> },
         { path: 'productos/:productId', element: <ProductDetailPage /> },
         { path: 'servicio-tecnico', element: <ServicePage /> },
+        { path: 'novedades', element: <NewsPage /> },
         { path: 'contacto', element: <ContactPage /> },
       ],
     },

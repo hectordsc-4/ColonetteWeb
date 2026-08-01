@@ -6,7 +6,7 @@ const links = [
   { to: '/', label: 'Inicio', end: true },
   { to: '/productos', label: 'Productos', end: false },
   { to: '/servicio-tecnico', label: 'Servicio Técnico', end: false },
-  { to: '/#novedades', label: 'Novedades', end: false },
+  { to: '/novedades', label: 'Novedades', end: false },
   { to: '/contacto', label: 'Contacto', end: false },
 ]
 

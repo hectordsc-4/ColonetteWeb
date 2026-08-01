@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './AlmondFeature.css'
 
 const ALMOND =
-  'https://images.unsplash.com/photo-1551024709-8f23befc0f44?auto=format&fit=crop&w=900&q=80'
+  'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=900&q=80'
 
 const features = [
   {
@@ -63,7 +63,7 @@ const features = [
 
 export default function AlmondFeature() {
   return (
-    <section id="novedades" className="almond section-atmosphere">
+    <section id="estrella" className="almond section-atmosphere">
       <div className="container almond__grid">
         <div className="almond__media reveal">
           <span className="almond__badge">Producto Estrella</span>

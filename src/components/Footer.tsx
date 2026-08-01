@@ -27,6 +27,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/productos">Productos</Link></li>
+              <li><Link to="/novedades">Novedades</Link></li>
               <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
               <li><Link to="/contacto">Contacto</Link></li>
             </ul>
@@ -107,7 +108,7 @@ export default function Footer() {
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/productos">Productos</Link></li>
               <li><Link to="/servicio-tecnico" className="is-active-link">Servicio Técnico</Link></li>
-              <li><Link to="/#novedades">Novedades</Link></li>
+              <li><Link to="/novedades">Novedades</Link></li>
               <li><Link to="/contacto">Contacto</Link></li>
             </ul>
           </div>
@@ -183,7 +184,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/productos">Productos</Link></li>
               <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
-              <li><Link to="/#novedades">Novedades</Link></li>
+              <li><Link to="/novedades">Novedades</Link></li>
               <li><Link to="/contacto" className="is-active-link">Contacto</Link></li>
             </ul>
           </div>
@@ -276,7 +277,7 @@ export default function Footer() {
             <ul>
               <li><Link to="/">Inicio</Link></li>
               <li><Link to="/productos">Productos</Link></li>
-              <li><Link to="/#novedades">Novedades</Link></li>
+              <li><Link to="/novedades">Novedades</Link></li>
               <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
             </ul>
           </div>
@@ -288,7 +289,7 @@ export default function Footer() {
             {isProducts ? (
               <>
                 <li><Link to="/servicio-tecnico">Servicio Técnico</Link></li>
-                <li><Link to="/#novedades">Novedades</Link></li>
+                <li><Link to="/novedades">Novedades</Link></li>
                 <li><a href="#distribuidor">Distribuidores</a></li>
                 <li><a href="#privacidad">Privacidad</a></li>
                 <li><a href="#aviso">Aviso Legal</a></li>

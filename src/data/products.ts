@@ -53,7 +53,7 @@ export const categories: { id: ProductCategory; label: string; count: number }[]
 
 const softIceGallery = [
   'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1501443762644-9f21d29d8e1d?auto=format&fit=crop&w=800&q=80',
+  'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80',
   'https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=800&q=80',
   'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80',
 ]
@@ -117,9 +117,9 @@ export const products: Product[] = [
         'Recetas tradicionales de las islas con fruta seleccionada y almendra mallorquina. Ideal para terrazas, chiringuitos y hostelería de alto volumen.',
       gallery: [
         'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1551024709-8f23befc0f44?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1488900123128-f9525258754c?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
         {
@@ -204,7 +204,7 @@ export const products: Product[] = [
     linkLabel: 'Ver variedades >',
     category: 'granizados',
     image:
-      'https://images.unsplash.com/photo-1488900123128-f9525258754c?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80',
     featured: true,
     detail: {
       title: 'Sorbete Artesano Colonette',
@@ -212,10 +212,10 @@ export const products: Product[] = [
       summary:
         'Sorbete ligero con fruta de temporada y textura aireada. Una alternativa elegante y refrescante para carta de postres y terrazas.',
       gallery: [
-        'https://images.unsplash.com/photo-1488900123128-f9525258754c?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1551024709-8f23befc0f44?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
         {
@@ -260,8 +260,8 @@ export const products: Product[] = [
         'Horchata cremosa elaborada con chufa seleccionada. Auténtica, refrescante y perfecta para el mediodía mediterráneo.',
       gallery: [
         'https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1551024709-8f23befc0f44?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
@@ -356,7 +356,7 @@ export const products: Product[] = [
         'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=1200&q=80',
         'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
         {
@@ -483,7 +483,7 @@ export const products: Product[] = [
       gallery: [
         'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80',
         'https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1519046904884-4511a52b0c66?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
@@ -531,7 +531,7 @@ export const products: Product[] = [
         'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80',
         'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80',
         'https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1501443762644-9f21d29d8e1d?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80',
       ],
       highlights: [
         {
