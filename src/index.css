@@ -30,7 +30,7 @@
   --font: 'Outfit', system-ui, sans-serif;
   --font-brand: 'Fraunces', Georgia, serif;
   --container: 1180px;
-  --header-h: 76px;
+  --header-h: 86px;
   --section-y: 5rem;
   --page-wash:
     radial-gradient(ellipse 75% 45% at 100% 0%, rgba(0, 86, 145, 0.09), transparent 55%),
@@ -351,7 +351,7 @@ h3 {
 
 @media (max-width: 900px) {
   :root {
-    --header-h: 68px;
+    --header-h: 78px;
     --section-y: 3.75rem;
   }
 

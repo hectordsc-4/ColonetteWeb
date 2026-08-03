@@ -5,6 +5,8 @@ export function asset(path: string): string {
 }
 
 export const img = {
+  logo: asset('images/logo-colonette.png'),
+
   // —— Home ——
   heroBg: asset('images/hero-home.jpg'),
   almond: asset('images/granizado-almendra.png'),
@@ -51,16 +53,16 @@ export const img = {
   yogurtG1: asset('images/maquina-soft-ice.png'),
 
   // —— Servicio ——
-  serviceHero: asset('images/img-43.png'),
-  serviceInstall: asset('images/chocolatera-2.png'),
+  serviceHero: asset('images/service-hero-clean.jpg'),
+  serviceInstall: asset('images/service-install-clean.jpg'),
   serviceTraining: asset('images/poster-1.png'),
 
   // —— Contacto ——
   contactHero: asset('images/foto-local-2.jpg'),
 
   // —— Novedades ——
-  newsHero: asset('images/soft-helado.png'),
-  newsFeatured: asset('images/img-09.png'),
+  newsHero: asset('images/news-granizados-verano.jpg'),
+  newsFeatured: asset('images/granizado-almendra.png'),
   newsSoft: asset('images/img-11.png'),
   newsCatalog: asset('images/poster-2.png'),
   newsService: asset('images/img-12.png'),

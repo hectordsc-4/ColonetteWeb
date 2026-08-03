@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link, NavLink, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useI18n } from '../i18n/I18nProvider'
+import { img } from '../data/images'
 import LanguageSwitcher from './LanguageSwitcher'
 import './Header.css'
 
@@ -46,8 +47,13 @@ export default function Header({ scrolled }: HeaderProps) {
     >
       <div className="container header__inner">
         <Link to="/" className="header__logo" aria-label="Colonette inicio">
-          <span className="header__logo-colon">Colon</span>
-          <span className="header__logo-ette">ette</span>
+          <img
+            src={img.logo}
+            alt="Colonette — ¡el del Pingüino!"
+            className="header__logo-img"
+            width="220"
+            height="72"
+          />
         </Link>
 
         <button
